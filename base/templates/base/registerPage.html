@@ -29,42 +29,59 @@
 
 
 
+
+
+
+
 <div class="container-fluid">
     <div class="row d-flex justify-content-center p-3">
         <div class="col d-flex justify-content-center">
-            <h1 class="text-center shadow-lg rounded p-3" style="font-weight: 900; color: #0F75BC;"> Pick a shore buddy to register </h1>
+            <h1 class="text-center rounded p-3" style="font-weight: 900; color: #0F75BC;"> Pick a shore buddy to register </h1>
+
+            
+
+
+
+
+
         </div>
-    </div>
+
+        
+
+
+
+
 
     <div class="row d-flex justify-content-center mt-1 p-5">
 
-        <div class="col-2 d-flex justify-content-center mx-2">
+        <div class="col-2 col-xs-6 d-flex justify-content-center mx-2">
+            
             <div class="d-flex justify-content-center" style="border-radius: 30px;">
-                <a  id = "characterCard" href="#"> <img class = "shadow-lg" src="{% static 'images/buddies/turtle.png' %}" alt="turtle" style="width: 200px; height: 200px; border-radius: 30px;"> </a>
+                <a  data-bs-toggle="modal" data-bs-target="#turtleModal"   id = "characterCard" href="#"> <img class = "shadow-lg" src="{% static 'images/buddies/turtle.png' %}" alt="turtle" style="width: 200px; height: 200px; border-radius: 30px;"> </a>
             </div>
         </div>
 
-        <div class="col-2 d-flex justify-content-center mx-2">
+        <div class="col-2 col-xs-6 d-flex justify-content-center mx-2">
             <div class="d-flex justify-content-center" style="border-radius: 30px;">
-                <a id = "characterCard"  href="#"> <img class = "shadow-lg" src="{% static 'images/buddies/whale.png' %}" alt="turtle" style="width: 200px; height: 200px; border-radius: 30px;"> </a>
+                <a data-bs-toggle="modal" data-bs-target="#whaleModal"   id = "characterCard"  href="#"> <img class = "shadow-lg" src="{% static 'images/buddies/whale.png' %}" alt="whale" style="width: 200px; height: 200px; border-radius: 30px;"> </a>
             </div>
         </div>
 
-        <div class="col-2 d-flex justify-content-center mx-2">
+        <div class="col-2 col-xs-6 d-flex justify-content-center mx-2">
             <div class="d-flex justify-content-center" style="border-radius: 30px;">
-                <a id = "characterCard" href="#"> <img class = "shadow-lg" src="{% static 'images/buddies/seal.png' %}" alt="turtle" style="width: 200px; height: 200px; border-radius: 30px;"> </a>
+                <a data-bs-toggle="modal" data-bs-target="#sealModal"  id = "characterCard" href="#"> <img class = "shadow-lg" src="{% static 'images/buddies/seal.png' %}" alt="seal" style="width: 200px; height: 200px; border-radius: 30px;"> </a>
             </div>
         </div>
 
-        <div class="col-2 d-flex justify-content-center mx-2">
+        <div class="col-2 col-xs-6 d-flex justify-content-center mx-2">
             <div class="d-flex justify-content-center" style="border-radius: 30px;">
-                <a id = "characterCard" href="#}"> <img class = "shadow-lg" src="{% static 'images/buddies/dolphin.png' %}" alt="turtle" style="width: 200px; height: 200px; border-radius: 30px;"> </a>
+                <a data-bs-toggle="modal" data-bs-target="#dolphinModal"    id = "characterCard" href="#"> <img class = "shadow-lg" src="{% static 'images/buddies/dolphin.png' %}" alt="dolphin" style="width: 200px; height: 200px; border-radius: 30px;"> </a>
             </div>
         </div>
 
-        <div class="col-2 d-flex justify-content-center mx-2">
+        <div class="col-2 col-xs-6 d-flex justify-content-center mx-2">
             <div class="d-flex justify-content-center" style="border-radius: 30px;">
-                <a id = "characterCard" href="#"> <img class = "shadow-lg" src="{% static 'images/buddies/seagull.png' %}" alt="turtle" style="width: 200px; height: 200px; border-radius: 30px;"> </a>
+                <a data-bs-toggle="modal" data-bs-target="#seagullModal"   id = "characterCard" href="#"> <img class = "shadow-lg" src="{% static 'images/buddies/seagull.png' %}" alt="seagull" style="width: 200px; height: 200px; border-radius: 30px;"> </a>
             </div>
         </div>
 
@@ -93,6 +110,243 @@
         </div>
     </div>
  </div> 
+
+
+
+
+ <!-- All Modals Located Below -->
+
+ <div class="modal fade" id="turtleModal" tabindex="-1" aria-labelledby="turtleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="turtleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form method="POST" action"" style="background-color: #0F75BC; border-radius: 30px;" class="p-5">
+                <h5 class="text-center text-white p-2 rounded shadow-lg" style="background-color: #ffffff20;"> Sign up for an account </h5>
+                {% csrf_token %}
+                <div class="form-group p-2">
+                    <label for="{{form1.username.id_for_label}}" style="color: white; font-weight: 500;">Create a username:</label>
+                    <input type="text" name="{{form1.username.name}}" style="height: 50px;" class="form-control" id="{{form1.username.id_for_label}}" placeholder="Username">
+                </div>
+                <div class="form-groupc p-2">
+                    <label for="{{form1.password1.id_for_label}}" style="color: white; font-weight: 500;"> Create a password:</label>
+                    <input type="password" name="{{form1.password1.name}}" style="height: 50px;" class="form-control" id="{{form1.password1.id_for_label}}" placeholder="Password">
+                </div>
+                <div class="form-group p-2">
+                    <label for="{{form1.password2.id_for_label}}" style="color: white; font-weight: 500;">Confirm Password:</label>
+                    <input type="password" name="{{form1.password2.name}}" style="height: 50px;" class="form-control" id="{{form1.password2.id_for_label}}" placeholder="Confirm Password">
+                </div> 
+                <div class="form-group p-2">
+                    <label for="{{form1.registration_code.id_for_label}}" style="color: white; font-weight: 500;">Registration Code:</label>
+                    <input type="text" name="{{form1.registration_code.name}}" style="height: 50px;" class="form-control" id="{{form1.registration_code.id_for_label}}" placeholder="Enter code">
+                </div>   
+
+                <div class="p-2 d-flex justify-content-center">
+                    <button id="createUserButton" type="submit" class="btn px-5 py-2" style="background-color: white; color: #0F75BC; font-weight: 500;">Create User</button>
+                </div>     
+            </form>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="modal fade" id="whaleModal" tabindex="-1" aria-labelledby="whaleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="whaleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form method="POST" action"" style="background-color: #0F75BC; border-radius: 30px;" class="p-5">
+                <h5 class="text-center text-white p-2 rounded shadow-lg" style="background-color: #ffffff20;"> Sign up for an account </h5>
+                {% csrf_token %}
+                <div class="form-group p-2">
+                    <label for="{{form2.username.id_for_label}}" style="color: white; font-weight: 500;">Create a username:</label>
+                    <input type="text" name="{{form2.username.name}}" style="height: 50px;" class="form-control" id="{{form2.username.id_for_label}}" placeholder="Username">
+                </div>
+                <div class="form-groupc p-2">
+                    <label for="{{form2.password1.id_for_label}}" style="color: white; font-weight: 500;"> Create a password:</label>
+                    <input type="password" name="{{form2.password1.name}}" style="height: 50px;" class="form-control" id="{{form2.password1.id_for_label}}" placeholder="Password">
+                </div>
+                <div class="form-group p-2">
+                    <label for="{{form2.password2.id_for_label}}" style="color: white; font-weight: 500;">Confirm Password:</label>
+                    <input type="password" name="{{form2.password2.name}}" style="height: 50px;" class="form-control" id="{{form2.password2.id_for_label}}" placeholder="Confirm Password">
+                </div> 
+                <div class="form-group p-2">
+                    <label for="{{form2.registration_code.id_for_label}}" style="color: white; font-weight: 500;">Registration Code:</label>
+                    <input type="text" name="{{form2.registration_code.name}}" style="height: 50px;" class="form-control" id="{{form2.registration_code.id_for_label}}" placeholder="Enter code">
+                </div>   
+
+                <div class="p-2 d-flex justify-content-center">
+                    <button id="createUserButton" type="submit" class="btn px-5 py-2" style="background-color: white; color: #0F75BC; font-weight: 500;">Create User</button>
+                </div>     
+            </form>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="sealModal" tabindex="-1" aria-labelledby="sealModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="sealModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form method="POST" action"" style="background-color: #0F75BC; border-radius: 30px;" class="p-5">
+                <h5 class="text-center text-white p-2 rounded shadow-lg" style="background-color: #ffffff20;"> Sign up for an account </h5>
+                {% csrf_token %}
+                <div class="form-group p-2">
+                    <label for="{{form3.username.id_for_label}}" style="color: white; font-weight: 500;">Create a username:</label>
+                    <input type="text" name="{{form3.username.name}}" style="height: 50px;" class="form-control" id="{{form3.username.id_for_label}}" placeholder="Username">
+                </div>
+                <div class="form-groupc p-2">
+                    <label for="{{form3.password1.id_for_label}}" style="color: white; font-weight: 500;"> Create a password:</label>
+                    <input type="password" name="{{form3.password1.name}}" style="height: 50px;" class="form-control" id="{{form3.password1.id_for_label}}" placeholder="Password">
+                </div>
+                <div class="form-group p-2">
+                    <label for="{{form3.password2.id_for_label}}" style="color: white; font-weight: 500;">Confirm Password:</label>
+                    <input type="password" name="{{form3.password2.name}}" style="height: 50px;" class="form-control" id="{{form3.password2.id_for_label}}" placeholder="Confirm Password">
+                </div> 
+                <div class="form-group p-2">
+                    <label for="{{form3.registration_code.id_for_label}}" style="color: white; font-weight: 500;">Registration Code:</label>
+                    <input type="text" name="{{form3.registration_code.name}}" style="height: 50px;" class="form-control" id="{{form3.registration_code.id_for_label}}" placeholder="Enter code">
+                </div>   
+
+                <div class="p-2 d-flex justify-content-center">
+                    <button id="createUserButton" type="submit" class="btn px-5 py-2" style="background-color: white; color: #0F75BC; font-weight: 500;">Create User</button>
+                </div>     
+            </form>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="dolphinModal" tabindex="-1" aria-labelledby="dolphinModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="dolphinModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form method="POST" action"" style="background-color: #0F75BC; border-radius: 30px;" class="p-5">
+                <h5 class="text-center text-white p-2 rounded shadow-lg" style="background-color: #ffffff20;"> Sign up for an account </h5>
+                {% csrf_token %}
+                <div class="form-group p-2">
+                    <label for="{{form4.username.id_for_label}}" style="color: white; font-weight: 500;">Create a username:</label>
+                    <input type="text" name="{{form4.username.name}}" style="height: 50px;" class="form-control" id="{{form4.username.id_for_label}}" placeholder="Username">
+                </div>
+                <div class="form-groupc p-2">
+                    <label for="{{form4.password1.id_for_label}}" style="color: white; font-weight: 500;"> Create a password:</label>
+                    <input type="password" name="{{form4.password1.name}}" style="height: 50px;" class="form-control" id="{{form4.password1.id_for_label}}" placeholder="Password">
+                </div>
+                <div class="form-group p-2">
+                    <label for="{{form4.password2.id_for_label}}" style="color: white; font-weight: 500;">Confirm Password:</label>
+                    <input type="password" name="{{form4.password2.name}}" style="height: 50px;" class="form-control" id="{{form4.password2.id_for_label}}" placeholder="Confirm Password">
+                </div> 
+                <div class="form-group p-2">
+                    <label for="{{form4.registration_code.id_for_label}}" style="color: white; font-weight: 500;">Registration Code:</label>
+                    <input type="text" name="{{form4.registration_code.name}}" style="height: 50px;" class="form-control" id="{{form4.registration_code.id_for_label}}" placeholder="Enter code">
+                </div>   
+
+                <div class="p-2 d-flex justify-content-center">
+                    <button id="createUserButton" type="submit" class="btn px-5 py-2" style="background-color: white; color: #0F75BC; font-weight: 500;">Create User</button>
+                </div>     
+            </form>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="seagullModal" tabindex="-1" aria-labelledby="seagullModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="seagullModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form method="POST" action"" style="background-color: #0F75BC; border-radius: 30px;" class="p-5">
+                <h5 class="text-center text-white p-2 rounded shadow-lg" style="background-color: #ffffff20;"> Sign up for an account </h5>
+                {% csrf_token %}
+                <div class="form-group p-2">
+                    <label for="{{form5.username.id_for_label}}" style="color: white; font-weight: 500;">Create a username:</label>
+                    <input type="text" name="{{form5.username.name}}" style="height: 50px;" class="form-control" id="{{form5.username.id_for_label}}" placeholder="Username">
+                </div>
+                <div class="form-groupc p-2">
+                    <label for="{{form5.password1.id_for_label}}" style="color: white; font-weight: 500;"> Create a password:</label>
+                    <input type="password" name="{{form5.password1.name}}" style="height: 50px;" class="form-control" id="{{form5.password1.id_for_label}}" placeholder="Password">
+                </div>
+                <div class="form-group p-2">
+                    <label for="{{form5.password2.id_for_label}}" style="color: white; font-weight: 500;">Confirm Password:</label>
+                    <input type="password" name="{{form5.password2.name}}" style="height: 50px;" class="form-control" id="{{form5.password2.id_for_label}}" placeholder="Confirm Password">
+                </div> 
+                <div class="form-group p-2">
+                    <label for="{{form5.registration_code.id_for_label}}" style="color: white; font-weight: 500;">Registration Code:</label>
+                    <input type="text" name="{{form5.registration_code.name}}" style="height: 50px;" class="form-control" id="{{form5.registration_code.id_for_label}}" placeholder="Enter code">
+                </div>   
+
+                <div class="p-2 d-flex justify-content-center">
+                    <button id="createUserButton" type="submit" class="btn px-5 py-2" style="background-color: white; color: #0F75BC; font-weight: 500;">Create User</button>
+                </div>     
+            </form>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
 
 
 

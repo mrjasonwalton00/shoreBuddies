@@ -14,9 +14,10 @@ urlpatterns = [
 
     path('portal_homePage/', views.portal_homePage, name='portal_homePage'), #url for portal home page
 
+    path('portal_profilePage/', views.portal_profilePage, name='portal_profilePage'), #url for portal home page
 
+    path('portal_gamePage/', views.portal_gamePage, name='portal_gamePage'), #url for portal home page
 
-
-
+    path('portal_videoPage/', views.portal_videoPage, name='portal_videoPage'), #url for portal home page
 
 ]

@@ -1,0 +1,79 @@
+<!-- navBar3 is the side nav bar inside the portal -->
+
+{% load static %}
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+        </div>
+    </div>
+</div>
+
+<style>
+    #test:hover {
+        background-color: #a8a8a856 !important;
+        border-radius: 10px !important;
+    }
+
+    body {
+        background-color: #ffffff !important;
+    }
+
+    #test {
+        text-decoration: none !important;
+        border-radius: 10px !important;
+    }
+
+    a {
+        text-decoration: none !important;
+    }
+</style>
+
+
+
+
+        <div class="col-2 rounded shadow-lg p-2" style="margin-top: 100px; position: fixed; background-color: rgb(233, 233, 233); height: 2000px;">
+           
+            <ul class="nav flex-column text-break">
+                
+             
+
+
+                <a href="#">
+                    <li id="test" class="nav-item"> 
+                        <img id="profileButton" src="{{ request.user.profile.profile_picture.url }}" style="border-radius: 30px; width: 60px; height: 60px; margin-top: 5px; border-style: solid;">
+                        <p style="display: inline; color: #0F75BC; font-weight: bold;">{{ user.username }}</p> 
+                    </li>
+                </a>
+
+                <a href="#">
+                    <li id="test" class="nav-item p-1 mt-3"> 
+                        <a href="{% url 'portal_videoPage' %}"  style="display: inline; color: #0F75BC; font-weight: bold;"> <i class="fa-solid fa-circle-play"></i> Watch Videos </a> 
+                    </li>
+                </a>
+
+                <a href="{% url 'portal_gamePage' %}">
+                    <li id="test" class="nav-item p-1 mt-3" style="color: #0F75BC; font-weight: bold;"> 
+                        <p style="display: inline;"> <i class="fa-solid fa-gamepad"></i> Play Games </p> 
+                    </li>
+                </a>
+
+                <a href="{% url 'portal_profilePage' %}">
+                    <li id="test" class="nav-item p-1 mt-3" style="color: #0F75BC; font-weight: bold;"> 
+                        <p style="display: inline;"> <i class="fa-solid fa-pen-to-square"></i> Edit Profile </p> 
+                    </li>
+                </a>
+
+                <a href="{% url 'logout' %}">
+                    <li id="test" class="nav-item p-1 mt-3" style="color: #0F75BC; font-weight: bold;"> 
+                        <p style="display: inline;"> <i class="fa-solid fa-right-from-bracket"></i> Logout </p> 
+                    </li>
+                </a>
+
+
+              </ul>
+
+              
+
+        </div>
